@@ -116,6 +116,7 @@ def detect_face_in_frame(image_frame):
 
 # Real-Time Processing
 def process_camera_feed():
+    os.environ["LIBCAMERA_LOG_LEVELS"] = "*:ERROR"
     download_images_from_s3()
     camera = Picamera2()
     camera.configure(camera.create_video_configuration())
